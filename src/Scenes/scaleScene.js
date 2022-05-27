@@ -172,9 +172,6 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
             }
             )
 
-            // if (currentMaskNum > 6)
-            //     wordTextList[currentMaskNum - 7].current.setClass('appear')
-
             if (currentMaskName != 'sub') {
                 blackWhiteObject.current.className = 'show'
                 colorObject.current.className = 'hide'
