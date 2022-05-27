@@ -24,6 +24,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc }, ref) => {
         },
         sceneStart: () => {
             audioList.bodyAudio1.src = getAudioPath('common/middle')
+            setExtraVolume(audioList.bodyAudio1, 1.5)
 
             parentRef.current.className = 'aniObject'
             spakleRef.current.className = 'excellentText'
@@ -39,6 +40,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc }, ref) => {
         },
 
         sceneEnd: () => {
+            setExtraVolume(audioList.bodyAudio1, 1)
             audioList.bodyAudio1.pause();
 
             for (let i = 0; i < timerList.length; i++)
@@ -52,7 +54,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc }, ref) => {
     return (
         <div>
             {isSceneLoad
-             &&
+                &&
                 <div ref={parentRef} className="hideObject">
                     < div ref={spakleRef} className="hideObject" style={{
                         position: "fixed",

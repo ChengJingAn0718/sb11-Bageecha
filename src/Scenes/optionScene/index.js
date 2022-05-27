@@ -139,7 +139,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
 
         audioList.bodyAudio1.pause()
         audioList.bodyAudio2.pause()
-        answerList.buzzAudio.pause();
+        audioList.buzzAudio.pause();
 
 
         timerList.map(timer => clearTimeout(timer))
