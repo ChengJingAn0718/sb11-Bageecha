@@ -139,6 +139,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
 
         audioList.bodyAudio1.pause()
         audioList.bodyAudio2.pause()
+        answerList.buzzAudio.pause();
 
 
         timerList.map(timer => clearTimeout(timer))
@@ -294,13 +295,16 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
             audioList.tingAudio.play();
 
             if (correctNum == answerList.length) {
-                goNextStep()
+                setTimeout(() => {
+                    goNextStep()
+                }, 1000);
+
             }
 
             else {
                 audioList.bodyAudio2.src = getAudioPath('option/' + (stepCount + 1) + '/' + (correctNum + 1))
 
-                transSignaler(SIGNALLIST.loadSecondPart)  // loadSecond part...
+                transSignaler(SIGNALLIST.loadSecondPart)  
 
                 timerList[0] = setTimeout(() => {
                     itemRefList[doneCount + correctNum].current.className = 'appear'
@@ -309,9 +313,8 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
                     audioList.bodyAudio2.play();
                     timerList[2] = setTimeout(() => {
                         startRepeatAudio()
-                        // audioList.commonAudio1.play();
                     }, audioList.bodyAudio2.duration * 1000 + 300);
-                }, 1500);
+                }, 2000);
             }
         }
         else {
@@ -352,7 +355,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
 
 
             transSignaler(SIGNALLIST.increaseMark)
-            
+
             setTimeout(() => {
                 nextFunc()
             }, 3000);
