@@ -35,7 +35,7 @@ export default function Scene18({ nextFunc, _geo, _baseGeo }) {
 
 
         timerList[1] = setTimeout(() => {
-            audioList.backAudio.volume = 0.03;
+            audioList.backAudio.volume = 0.02;
 
             audioList.yeahAudio.volume = 0.2
             audioList.clapAudio.volume = 0.4
@@ -45,7 +45,7 @@ export default function Scene18({ nextFunc, _geo, _baseGeo }) {
             startRepeatAudio()
 
             timerList[3] = setTimeout(() => {
-                audioList.backAudio.volume = 0.05;
+                audioList.backAudio.volume = 0.04;
                 audioList.yeahAudio.volume = 0.4
                 audioList.clapAudio.volume = 0.8
 
@@ -72,7 +72,7 @@ export default function Scene18({ nextFunc, _geo, _baseGeo }) {
 
             audioList.replayAudio.pause();
 
-            audioList.backAudio.volume = 0.05;
+            audioList.backAudio.volume = 0.04;
             audioList.yeahAudio.volume = 0.4
             audioList.clapAudio.volume = 0.8
         }
