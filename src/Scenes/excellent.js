@@ -2,7 +2,7 @@ import React, { useContext, useRef, useEffect } from 'react';
 import "../stylesheets/styles.css";
 import { UserContext } from "../components/BaseShot"
 import { isIOS } from "react-device-detect";
-import { setExtraVolume, setRepeatAudio, startRepeatAudio, stopRepeatAudio } from "../components/CommonFunctions"
+import { setExtraVolume, setRepeatAudio, setRepeatType, startRepeatAudio, stopRepeatAudio } from "../components/CommonFunctions"
 import { prePathUrl } from "../components/CommonFunctions";
 
 let timerList = []
@@ -15,7 +15,7 @@ export default function Scene18({ nextFunc, _geo, _baseGeo }) {
 
         audioList.bodyAudio1.src = prePathUrl() + "sounds/effect/excellent.mp3"
         setRepeatAudio(audioList.replayAudio)
-        setRepeatAudio(2)
+        setRepeatType(2)
 
         timerList[0] = setTimeout(() => {
             audioList.clapAudio.pause();
