@@ -87,8 +87,9 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
         continueGame: () => {
             //continue games...
 
-            audioList.bodyAudio1.src = getAudioPath('option/' + (stepCount + 1) + '/q')
-            audioList.bodyAudio2.src = getAudioPath('option/' + (stepCount + 1) + '/1')
+            audioList.bodyAudio1.src = getAudioPath('option/' + (stepCount + 2) + '/q')
+            audioList.bodyAudio2.src = getAudioPath('option/' + (stepCount + 2) + '/1')
+
 
             setPrimaryAudio(audioList.bodyAudio2)
             setRepeatAudio(audioList.commonAudio1)
@@ -107,7 +108,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
                         // audioList.commonAudio1.play();
                     }, audioList.bodyAudio2.duration * 1000 + 300);
                 }, audioList.bodyAudio1.duration * 1000 + 300);
-            }, 1500);
+            }, 2000);
         },
         startGame: () => {
 
@@ -277,7 +278,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
             ],
             [
                 [3, 2, 1, 0], [3, 2, 0, 1],
-                [1, 0, 3, 2], [1, 0, 2, 3],
+                [1, 0, 3, 2], [1, 3, 2, 0],
                 [2, 3, 1, 0], [2, 3, 0, 1]
             ]
         ]
