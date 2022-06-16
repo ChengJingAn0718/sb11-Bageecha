@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useContext, useState } from 'react';
 import "../stylesheets/styles.css";
 import BaseImage from '../components/BaseImage';
 import { UserContext } from '../components/BaseShot';
-import { getAudioPath, prePathUrl } from "../components/CommonFunctions";
+import { getAudioPath, prePathUrl, setExtraVolume } from "../components/CommonFunctions";
 import { MaskComponent } from "../components/CommonComponents"
 
 
@@ -116,6 +116,14 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
         sceneStart: () => {
 
             loadFunc()
+
+            setTimeout(() => {
+                setExtraVolume(audioList.bodyAudio1, 2)
+                setExtraVolume(audioList.bodyAudio2, 2)
+                setExtraVolume(audioList.bodyAudio3, 2)
+            }, 2000);
+
+
 
             baseObject.current.className = 'aniObject'
             audioList.bodyAudio1.src = getAudioPath('intro/' + audioPathList[currentMaskNum][0]);
@@ -253,6 +261,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
 
                         setTimeout(() => {
                             if (currentMaskNum == maskPathList.length - 1) {
+                            // if (currentMaskNum == 0) {
                                 setTimeout(() => {
                                     baseObject.current.style.transition = '2s'
 

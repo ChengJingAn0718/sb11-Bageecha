@@ -18,7 +18,6 @@ const firstStartNum = -1
 let isDisabled = false;
 
 const firstContinueList = [
-    1
 ]
 const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => {
 
@@ -31,7 +30,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
     const blackWhiteObject = useRef();
     const baseColorImgRef = useRef();
     const buttonRefs = useRef()
-    const starRefs = Array.from({ length: 7 }, ref => useRef())
+    const starRefs = Array.from({ length: 6 }, ref => useRef())
     const optionRef = useRef()
 
     const aniImageList = Array.from({ length: 4 }, ref => useRef())
@@ -59,6 +58,9 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
             parentRef.current.className = 'aniObject'
             startFirstPart()
             loadFunc()
+
+            setExtraVolume(audioList.commonAudio1, 3)
+            setExtraVolume(audioList.commonAudio2, 2.5)
         },
         sceneEnd: () => {
             setSceneLoad(false)
@@ -173,6 +175,8 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
 
                 else {
                     isDisabled = false;
+                    
+
                     if (stepCount < questionPartCount) {
                         returnBackground();
                         buttonRefs.current.style.pointerEvents = ''

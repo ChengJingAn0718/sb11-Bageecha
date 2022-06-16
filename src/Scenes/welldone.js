@@ -35,6 +35,8 @@ const Scene = React.forwardRef(({ nextFunc, loadFunc, _baseGeo }, ref) => {
 
             loadFunc()
 
+            setExtraVolume(audioList.bodyAudio1, 2.5)
+            
             timerList[0] = setTimeout(() => {
                 audioList.bodyAudio1.play().catch(error => { });
             }, 1500);

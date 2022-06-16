@@ -9,7 +9,7 @@ import { SIGNALLIST } from "../../components/CommonVarariant"
 
 let answerList = []
 
-let optionList = [0, 1, 2]
+let optionList = [0, 1]
 let optionType = 0;
 
 let correctNum = 0
@@ -90,10 +90,9 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
             audioList.bodyAudio1.src = getAudioPath('option/' + (stepCount + 2) + '/q')
             audioList.bodyAudio2.src = getAudioPath('option/' + (stepCount + 2) + '/1')
 
-
             setPrimaryAudio(audioList.bodyAudio2)
             setRepeatAudio(audioList.commonAudio1)
-
+            setRepeatType(1)
 
             parentObject.current.style.pointerEvents = ''
             parentObject.current.className = 'appear'
@@ -182,23 +181,11 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
 
                 let waitTime = 500
 
-                if (stepCount == 2) {
-                    disableState = true
-                    waitTime = 2500
-                    setTimeout(() => {
-                        parentObject.current.className = 'disapear'
-                        continueSecondPart()
-                    }, 2000);
 
-
-                }
-
-                else {
-                    audioList.bodyAudio1.src = getAudioPath('option/' + (stepCount + 1) + '/q')
-                    audioList.bodyAudio2.src = getAudioPath('option/' + (stepCount + 1) + '/1')
-                    disableState = false
-                    parentObject.current.className = 'disapear'
-                }
+                audioList.bodyAudio1.src = getAudioPath('option/' + (stepCount + 1) + '/q')
+                audioList.bodyAudio2.src = getAudioPath('option/' + (stepCount + 1) + '/1')
+                disableState = false
+                parentObject.current.className = 'disapear'
 
                 setTimeout(() => {
 
@@ -278,7 +265,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
             ],
             [
                 [3, 2, 1, 0], [3, 2, 0, 1],
-                [1, 0, 3, 2], [1, 3, 2, 0],
+                [1, 0, 3, 2], [1, 0, 3, 2],
                 [2, 3, 1, 0], [2, 3, 0, 1]
             ]
         ]
@@ -320,7 +307,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
             else {
                 audioList.bodyAudio2.src = getAudioPath('option/' + (stepCount + 1) + '/' + (correctNum + 1))
 
-                transSignaler(SIGNALLIST.loadSecondPart)  
+                transSignaler(SIGNALLIST.loadSecondPart)
 
                 timerList[0] = setTimeout(() => {
                     itemRefList[doneCount + correctNum].current.className = 'appear'
