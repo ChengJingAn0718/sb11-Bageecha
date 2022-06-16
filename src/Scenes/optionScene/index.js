@@ -102,10 +102,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
                 audioList.bodyAudio1.play();
                 timerList[1] = setTimeout(() => {
                     audioList.bodyAudio2.play();
-                    timerList[2] = setTimeout(() => {
-                        startRepeatAudio()
-                        // audioList.commonAudio1.play();
-                    }, audioList.bodyAudio2.duration * 1000 + 300);
+                    startRepeatAudio()
                 }, audioList.bodyAudio1.duration * 1000 + 300);
             }, 2000);
         },
@@ -127,6 +124,8 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
                         startRepeatAudio()
                         audioList.commonAudio1.play();
                     }, audioList.bodyAudio2.duration * 1000 + 300);
+
+
                 }, audioList.bodyAudio1.duration * 1000 + 600);
             }, 1500);
         }
@@ -184,6 +183,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
 
                 audioList.bodyAudio1.src = getAudioPath('option/' + (stepCount + 1) + '/q')
                 audioList.bodyAudio2.src = getAudioPath('option/' + (stepCount + 1) + '/1')
+
                 disableState = false
                 parentObject.current.className = 'disapear'
 
@@ -214,6 +214,10 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
 
                     setPositionFomart();
 
+                    setPrimaryAudio(audioList.bodyAudio2)
+                    setRepeatAudio(audioList.commonAudio1)
+                    setRepeatType(1)
+
                     if (!disableState) {
                         parentObject.current.className = 'appear'
                         parentObject.current.style.pointerEvents = ''
@@ -221,12 +225,9 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
                             audioList.bodyAudio1.play();
                             timerList[1] = setTimeout(() => {
                                 audioList.bodyAudio2.play();
-                                timerList[2] = setTimeout(() => {
-                                    startRepeatAudio()
-                                    // audioList.commonAudio1.play();
-                                }, audioList.bodyAudio2.duration * 1000 + 300);
+                                startRepeatAudio()
                             }, audioList.bodyAudio1.duration * 1000 + 300);
-                        }, 1500);
+                        }, 2000);
                     }
                 }, waitTime);
             }
@@ -314,9 +315,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
                     parentObject.current.style.pointerEvents = ''
 
                     audioList.bodyAudio2.play();
-                    timerList[2] = setTimeout(() => {
-                        startRepeatAudio()
-                    }, audioList.bodyAudio2.duration * 1000 + 300);
+                    startRepeatAudio()
                 }, 2000);
             }
         }
@@ -327,9 +326,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
             timerList[1] = setTimeout(() => {
                 audioList.bodyAudio2.currentTime = 0
                 audioList.bodyAudio2.play();
-                timerList[2] = setTimeout(() => {
-                    startRepeatAudio()
-                }, audioList.bodyAudio2.duration * 1000);
+                startRepeatAudio()
             }, 1000);
         }
     }
@@ -370,9 +367,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
             timerList[1] = setTimeout(() => {
                 audioList.bodyAudio2.currentTime = 0
                 audioList.bodyAudio2.play();
-                timerList[2] = setTimeout(() => {
-                    startRepeatAudio()
-                }, audioList.bodyAudio2.duration * 1000);
+                startRepeatAudio()
             }, 1000);
         }
 
