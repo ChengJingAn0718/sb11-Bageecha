@@ -225,7 +225,11 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
                             audioList.bodyAudio1.play();
                             timerList[1] = setTimeout(() => {
                                 audioList.bodyAudio2.play();
-                                startRepeatAudio()
+                                timerList[2] = setTimeout(() => {
+                                    startRepeatAudio()
+                                    audioList.commonAudio1.play()
+                                }, audioList.bodyAudio2.duration * 1000);
+
                             }, audioList.bodyAudio1.duration * 1000 + 300);
                         }, 2000);
                     }
@@ -352,7 +356,6 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo, continueS
             )
 
             audioList.tingAudio.play();
-
 
             transSignaler(SIGNALLIST.increaseMark)
 
