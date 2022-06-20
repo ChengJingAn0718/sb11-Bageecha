@@ -118,9 +118,9 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
             loadFunc()
 
             setTimeout(() => {
-                setExtraVolume(audioList.bodyAudio1, 2)
-                setExtraVolume(audioList.bodyAudio2, 2)
-                setExtraVolume(audioList.bodyAudio3, 2)
+                setExtraVolume(audioList.bodyAudio1, 3)
+                setExtraVolume(audioList.bodyAudio2, 3)
+                setExtraVolume(audioList.bodyAudio3, 3)
             }, 2000);
 
 

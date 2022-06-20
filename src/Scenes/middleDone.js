@@ -29,12 +29,12 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc }, ref) => {
             spakleRef.current.className = 'excellentText'
 
 
-            setExtraVolume(audioList.bodyAudio1, 3)
-            setExtraVolume(audioList.clapAudio, 1.5)
-            setExtraVolume(audioList.yeahAudio, 1.5)
-            setExtraVolume(audioList.tingAudio, 1.5)
-            setExtraVolume(audioList.buzzAudio, 1.5)
-            setExtraVolume(audioList.successAudio, 1.5)
+            setExtraVolume(audioList.bodyAudio1, 4)
+            setExtraVolume(audioList.clapAudio, 2)
+            setExtraVolume(audioList.yeahAudio, 2)
+            setExtraVolume(audioList.tingAudio, 2)
+            setExtraVolume(audioList.buzzAudio, 2)
+            setExtraVolume(audioList.successAudio, 2)
 
 
             loadFunc();
@@ -48,7 +48,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc }, ref) => {
         },
 
         sceneEnd: () => {
-            setExtraVolume(audioList.bodyAudio1, 2)
+            setExtraVolume(audioList.bodyAudio1, 3)
             audioList.bodyAudio1.pause();
 
             for (let i = 0; i < timerList.length; i++)

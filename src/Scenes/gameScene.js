@@ -59,8 +59,8 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
             startFirstPart()
             loadFunc()
 
-            setExtraVolume(audioList.commonAudio1, 3)
-            setExtraVolume(audioList.commonAudio2, 2.5)
+            setExtraVolume(audioList.commonAudio1, 4)
+            setExtraVolume(audioList.commonAudio2, 3.2)
         },
         sceneEnd: () => {
             setSceneLoad(false)
