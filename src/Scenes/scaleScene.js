@@ -118,9 +118,9 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
             loadFunc()
 
             setTimeout(() => {
-                setExtraVolume(audioList.bodyAudio1, 3)
-                setExtraVolume(audioList.bodyAudio2, 3)
-                setExtraVolume(audioList.bodyAudio3, 3)
+                setExtraVolume(audioList.bodyAudio1, 6)
+                setExtraVolume(audioList.bodyAudio2, 6)
+                setExtraVolume(audioList.bodyAudio3, 6)
             }, 2000);
 
 
@@ -421,22 +421,6 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
                             url={'bg/base.png'}
                         />
                     </div>
-
-                    {
-                        wordTextList.map((value, index) =>
-                            <BaseImage
-                                className='hideObject'
-                                ref={value}
-                                scale={0.18}
-                                posInfo={{
-                                    l: 0.77,
-                                    t: 0.35,
-                                }}
-                                url={'intro/t' + (index + 1) + '.png'}
-                            />
-                        )
-
-                    }
                 </div>
             }
         </div >

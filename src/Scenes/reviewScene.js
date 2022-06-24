@@ -98,11 +98,11 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
 
             clickedList = []
 
-            for (let i = 0; i < 15; i++)
-                setExtraVolume(audioList[i], 3)
+            
+             
 
             setRepeatAudio(audioList.commonAudio3)
-            setExtraVolume(audioList.commonAudio3, 3.3)
+            setExtraVolume(audioList.commonAudio3, 6.6)
 
         },
         sceneEnd: () => {
@@ -207,7 +207,11 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
 
         clickedList.push(index)
 
-        audioList[index].play();
+        setExtraVolume(audioList[i], 6)
+        setTimeout(() => {
+            audioList[index].play();    
+        }, 50);
+        
         if (clickedList.length == doneCount + wordGround[stepCount]) {
             setTimeout(() => {
                 if (stepCount != wordGround.length - 1)
