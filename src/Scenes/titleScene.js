@@ -48,12 +48,12 @@ const Scene = React.forwardRef(({ nextFunc, _geo, _startTransition }, ref) => {
 
         setTimeout(() => {
             playBtnRef.current.className = 'introText'
-        }, 1000);
+        }, 1300);
 
         setTimeout(() => {
             playBtnRef.current.className = 'commonButton'
             playBtnRef.current.style.pointerEvents = ''
-        }, 2000);
+        }, 2300);
 
     }
 

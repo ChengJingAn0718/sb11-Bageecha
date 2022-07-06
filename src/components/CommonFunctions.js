@@ -193,8 +193,10 @@ export function startRepeatAudio(pastTime = 0, intervalTime = 16000) {
     clearTimeout(repeartTimer)
     clearInterval(repeatInterval)
 
-    primaryAudio.currentTime = 0;
-    repeatAudio.currentTime = 0;
+    if (primaryAudio)
+        primaryAudio.currentTime = 0;
+    if (repeatAudio)
+        repeatAudio.currentTime = 0;
 
     repeartTimer = setTimeout(() => {
         repeatInterval = setInterval(() => {
@@ -202,7 +204,7 @@ export function startRepeatAudio(pastTime = 0, intervalTime = 16000) {
                 repeatAudio.play();
             else {
                 clearTimeout(subTimer)
-                
+
                 primaryAudio.play()
                 subTimer = setTimeout(() => {
                     repeatAudio.play()

@@ -22,23 +22,23 @@ let wordGround = [6, 6, 3]
 
 const posInfoList = [
 
-    { x: 1, y: 40 },
+    { x: 4, y: 40 },
     { x: 34, y: 40 },
-    { x: 68, y: 40, m: true },
-    { x: 1, y: 70 },
+    { x: 64, y: 40, m: true },
+    { x: 4, y: 70 },
     { x: 34, y: 70 },
-    { x: 68, y: 70, m: true },
+    { x: 64, y: 70, m: true },
 
-    { x: 1, y: 40 },
+    { x: 4, y: 40 },
     { x: 34, y: 40 },
-    { x: 68, y: 40, m: true },
-    { x: 1, y: 70 },
+    { x: 64, y: 40, m: true },
+    { x: 4, y: 70 },
     { x: 34, y: 70 },
-    { x: 68, y: 70, m: true },
+    { x: 64, y: 70, m: true },
 
-    { x: 1, y: 55 },
+    { x: 4, y: 55 },
     { x: 34, y: 55 },
-    { x: 68, y: 55, m: true },
+    { x: 64, y: 55, m: true },
 
 ]
 
@@ -74,7 +74,8 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
             }
             stepCount = 0;
 
-            stopRepeatAudio()
+            // setRepeatType(1)
+            // stopRepeatAudio()
         }
     }, [])
 
@@ -98,8 +99,6 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
 
             clickedList = []
 
-            
-             
 
             setRepeatAudio(audioList.commonAudio3)
             setExtraVolume(audioList.commonAudio3, 6.6)
@@ -209,9 +208,9 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
 
         setExtraVolume(audioList[index], 6)
         setTimeout(() => {
-            audioList[index].play();    
+            audioList[index].play();
         }, 50);
-        
+
         if (clickedList.length == doneCount + wordGround[stepCount]) {
             setTimeout(() => {
                 if (stepCount != wordGround.length - 1)
